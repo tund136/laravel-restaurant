@@ -85,14 +85,32 @@
                         </li>
                         <!-- <li class=""><a rel="sponsored" href="https://templatemo.com" target="_blank">External URL</a></li> -->
                         <li class="scroll-to-section"><a href="#reservation">Contact Us</a></li>
-                    </ul>
-                    <a class='menu-trigger'>
-                        <span>Menu</span>
-                    </a>
-                    <!-- ***** Menu End ***** -->
-                </nav>
+
+                        <li>
+                            @if (Route::has('login'))
+                                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+                        @auth
+                            <li>
+                                <x-app-layout>
+
+                                </x-app-layout>
+                            </li>
+                        @else
+                            <li><a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Log in</a></li>
+
+                            @if (Route::has('register'))
+                                <li><a href="{{ route('register') }}"
+                                       class="ml-4 text-sm text-gray-700 underline">Register</a></li>
+                @endif
+                @endauth
             </div>
+            @endif
+            </li>
+            </ul>
+            <!-- ***** Menu End ***** -->
+            </nav>
         </div>
+    </div>
     </div>
 </header>
 <!-- ***** Header Area End ***** -->
@@ -495,9 +513,9 @@
                                         <li><a href='#tabs-1'><img src="assets/images/tab-icon-01.png" alt="">Breakfast</a>
                                         </li>
                                         <li><a href='#tabs-2'><img src="assets/images/tab-icon-02.png"
-                                                                   alt="">Lunch</a></a></li>
+                                                                   alt="">Lunch</a></li>
                                         <li><a href='#tabs-3'><img src="assets/images/tab-icon-03.png"
-                                                                   alt="">Dinner</a></a></li>
+                                                                   alt="">Dinner</a></li>
                                     </ul>
                                 </div>
                             </div>
